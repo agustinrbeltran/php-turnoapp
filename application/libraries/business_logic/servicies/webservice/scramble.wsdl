@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <definitions name="Scramble"
           targetNamespace="urn:localhost-scramble"
-          xmlns:tns="http://localhost/webapp/application/libraries/business_logic/servicies/webservice/scramble.wsdl"
+          xmlns:tns="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/scramble.wsdl"
           xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 		  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
           xmlns="http://schemas.xmlsoap.org/wsdl/">
@@ -62,7 +62,7 @@
     <service name="ScrambleService">
         <documentation>My first service</documentation>
         <port name="ScramblePort" binding="tns:ScrambleBinding">
-           <soap:address location="http://localhost/webapp/application/libraries/business_logic/servicies/webservice/Server.php"/>
+           <soap:address location="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/Server.php"/>
         </port>
     </service>
 </definitions>

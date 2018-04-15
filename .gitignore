@@ -1,3 +1,6 @@
 .idea
 .DS_Store
 ._*
+
+# Compiled Smarty Templates 
+application/third_party/templates_c/*

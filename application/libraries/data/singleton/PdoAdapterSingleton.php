@@ -5,9 +5,9 @@ namespace data\singleton;
 use data\primitives\PdoAdapter;
 
 class PdoAdapterSingleton {
-    const USER = "user";
-    const PASSWORD = "qwerty123456";
-    const DATA_BASE = "mysql:dbname=turnoapp_db";
+    const USER = "root";
+    const PASSWORD = "test";
+    const DATA_BASE = "mysql:host=db;port=3306;dbname=turnoapp_db";
 
     private static $_instance = null;
 
