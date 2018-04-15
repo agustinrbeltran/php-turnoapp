@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'user';
-$db['default']['password'] = 'qwerty123456';
+$db['default']['hostname'] = 'db';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'test';
 $db['default']['database'] = 'turnoapp_db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
