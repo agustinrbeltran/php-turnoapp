@@ -8,18 +8,20 @@ use data\primitives\AbstractDataMapper,
     data\collections\AdministradorCollection;
 
 
-class AdministradorMapper extends AbstractDataMapper implements  AdministradorMapperInterface
+class AdministradorMapper extends AbstractDataMapper implements AdministradorMapperInterface
 {
 
     protected $_entityTable = "usuarios";
     protected $_collection;
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         parent::__construct($adapter);
         $this->_collection = $collection = new AdministradorCollection();
     }
 
-    public function insert(Administrador $administrador){
+    public function insert(Administrador $administrador)
+    {
         $administrador->setId(
             $this->adapter->insert(
                 $this->_entityTable,
@@ -29,7 +31,7 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
                     "email" => $administrador->getEmail(),
                     "username" => $administrador->getUsername(),
                     "password" => $administrador->getPassword(),
-                    "tipo" => 2 , //tipo 1 es para usuarios de sucursal, 2 para los administradores
+                    "tipo" => 2, //tipo 1 es para usuarios de sucursal, 2 para los administradores
                 )
             )
         );
@@ -37,10 +39,10 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
         return $administrador->getId();
     }
 
-    public function update (Administrador $administrador)
+    public function update(Administrador $administrador)
     {
         $id_administrador = $administrador->getId();
-        $confirm= $this->adapter->update(
+        $confirm = $this->adapter->update(
             $this->_entityTable,
             array(
                 "nombre" => $administrador->getNombre(),
@@ -54,14 +56,16 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
         return $confirm;
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id instanceof Administrador) {
             $id = $id->getId();
         }
-        return $this->adapter->delete($this->_entityTable,"id = $id");
+        return $this->adapter->delete($this->_entityTable, "id = $id");
     }
 
-    protected function createEntity(array $row) {
+    protected function createEntity(array $row)
+    {
         $administrador = new Administrador($row["nombre"], $row["apellido"], $row["email"], $row["username"], $row["password"]);
         $administrador->setId($row["id"]);
         return $administrador;
@@ -82,7 +86,7 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
     public function findById($id)
     {
         $this->adapter->select($this->_entityTable,
-            array('id' => $id , 'tipo'=> 2));
+            array('id' => $id, 'tipo' => 2));
 
         if (!$row = $this->adapter->fetch()) {
             return null;
@@ -92,9 +96,10 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
     }
 
     //metodo sobreescrito
-    public function findAll(array $conditions = array()) {
+    public function findAll(array $conditions = array())
+    {
 
-        $conditions['tipo']=2;
+        $conditions['tipo'] = 2;
         $this->adapter->select($this->_entityTable, $conditions);
         $rows = $this->adapter->fetchAll();
         return $this->createCollection($rows);
@@ -102,4 +107,5 @@ class AdministradorMapper extends AbstractDataMapper implements  AdministradorMa
     }
 
 }
+
 ?>

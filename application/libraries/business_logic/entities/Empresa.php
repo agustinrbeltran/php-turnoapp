@@ -6,68 +6,69 @@ use business_logic\factory\ObjectFactory, BadMethodCallException, InvalidArgumen
 class Empresa implements EmpresaInterface
 {
 
-	private $_id;
-	private $_nombre;
-	private $_sucursales;
+    private $_id;
+    private $_nombre;
+    private $_sucursales;
 
 
-	function __construct($nombre)
-	{
-		$this->setNombre($nombre);
-		$this->_sucursales= ObjectFactory::crearCollection();
-	}
+    function __construct($nombre)
+    {
+        $this->setNombre($nombre);
+        $this->_sucursales = ObjectFactory::crearCollection();
+    }
 
-	public function setId($id)
-	{
-		if ($this->_id !== null) {
-			throw new BadMethodCallException(
-			"El id para esta empresa ya ha sido seteado.");
-		}
+    public function setId($id)
+    {
+        if ($this->_id !== null) {
+            throw new BadMethodCallException(
+                "El id para esta empresa ya ha sido seteado.");
+        }
 
-		if (!is_int($id) || $id < 1) {
-			throw new InvalidArgumentException("El id de esta empresa es invalido.");
-		}
+        if (!is_int($id) || $id < 1) {
+            throw new InvalidArgumentException("El id de esta empresa es invalido.");
+        }
 
-		$this->_id = $id;
-		return $this;
-	}
+        $this->_id = $id;
+        return $this;
+    }
 
-	public function getId()
-	{
-		return $this->_id;
-	}
+    public function getId()
+    {
+        return $this->_id;
+    }
 
-	public function setNombre($nombre)
-	{
-		if (!is_string($nombre)
-		|| strlen($nombre) < 2
-		|| strlen($nombre) > 100) {
-			throw new InvalidArgumentException("El nombre es invalido.");
-		}
+    public function setNombre($nombre)
+    {
+        if (!is_string($nombre)
+            || strlen($nombre) < 2
+            || strlen($nombre) > 100) {
+            throw new InvalidArgumentException("El nombre es invalido.");
+        }
 
-		$this->_nombre = htmlspecialchars(trim($nombre), ENT_QUOTES);
-		return $this;
-	}
+        $this->_nombre = htmlspecialchars(trim($nombre), ENT_QUOTES);
+        return $this;
+    }
 
-	public function getNombre()
-	{
-		return $this->_nombre;
-	}
+    public function getNombre()
+    {
+        return $this->_nombre;
+    }
 
-	public function setSucursal(SucursalInterface $sucursal)
-	{
-		$this->_sucursales->insert($sucursal);
-	}
+    public function setSucursal(SucursalInterface $sucursal)
+    {
+        $this->_sucursales->insert($sucursal);
+    }
 
-	public function setSucursales(array $Sucursales)
-	{
-		$this->_sucursales->setArray($Sucursales);
-	}
+    public function setSucursales(array $Sucursales)
+    {
+        $this->_sucursales->setArray($Sucursales);
+    }
 
-	public function getSucursales()
-	{
-		return $this->_sucursales->getArray();
-	}
+    public function getSucursales()
+    {
+        return $this->_sucursales->getArray();
+    }
 
 }
+
 ?>

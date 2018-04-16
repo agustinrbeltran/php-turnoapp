@@ -8,19 +8,21 @@ use business_logic\entities\MarcaDeTiempo,
     data\primitives\AbstractDataMapper,
     data\collections\MarcaTiempoCollection;
 
-class MarcaDeTiempoMapper extends AbstractDataMapper implements  MarcaDeTiempoMapperInterface
+class MarcaDeTiempoMapper extends AbstractDataMapper implements MarcaDeTiempoMapperInterface
 {
     protected $_entityTable = "timestamps";
     protected $_collection;
 
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         parent::__construct($adapter);
         $this->_collection = new MarcaTiempoCollection();
 
     }
 
-    public function insert(MarcaDeTiempoInterface $marcaDeTiempo, $id_ticketera) {
+    public function insert(MarcaDeTiempoInterface $marcaDeTiempo, $id_ticketera)
+    {
         $marcaDeTiempo->setId(
             $this->adapter->insert(
                 $this->_entityTable,
@@ -34,21 +36,23 @@ class MarcaDeTiempoMapper extends AbstractDataMapper implements  MarcaDeTiempoMa
         return $marcaDeTiempo->getId();
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id instanceof MarcaDeTiempoInterface) {
             $id = $id->getId();
         }
-        return $this->adapter->delete($this->_entityTable,"id = $id");
+        return $this->adapter->delete($this->_entityTable, "id = $id");
     }
 
-    public function deleteAll($id_ticketera) {
+    public function deleteAll($id_ticketera)
+    {
 
-        return $this->adapter->delete($this->_entityTable,"id_ticketera = $id_ticketera");
+        return $this->adapter->delete($this->_entityTable, "id_ticketera = $id_ticketera");
     }
 
 
-
-    protected function createEntity(array $row) {
+    protected function createEntity(array $row)
+    {
         $marcaDeTiempo = new MarcaDeTiempo();
         $marcaDeTiempo->setTimestamp($row["ts"]);
         $marcaDeTiempo->setId($row["id"]);
@@ -67,4 +71,5 @@ class MarcaDeTiempoMapper extends AbstractDataMapper implements  MarcaDeTiempoMa
         return $this->_collection;
     }
 }
+
 ?>

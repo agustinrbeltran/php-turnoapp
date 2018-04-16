@@ -4,24 +4,23 @@
 class Test extends CI_Controller
 {
 
-  public function index()
-  {
+    public function index()
+    {
 
-    $this->load->library('myservicies');
-    $usuarioService = $this->myservicies->getUsuarioSucursalService();
+        $this->load->library('myservicies');
+        $usuarioService = $this->myservicies->getUsuarioSucursalService();
 
-    $usuarioService->setUsuario ($this->session->userdata('email'));
+        $usuarioService->setUsuario($this->session->userdata('email'));
 
-    $id_sucursal = $usuarioService->getIdSucursal();
+        $id_sucursal = $usuarioService->getIdSucursal();
 
-    $usuario = $usuarioService->getUsuario();
-
-
-    echo $id_sucursal."a ".$usuario->getIdSucursal()."b ".$usuario->getId();
+        $usuario = $usuarioService->getUsuario();
 
 
+        echo $id_sucursal . "a " . $usuario->getIdSucursal() . "b " . $usuario->getId();
 
-  }
+
+    }
 
 }
 

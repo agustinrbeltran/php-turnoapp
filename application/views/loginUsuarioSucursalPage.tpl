@@ -8,7 +8,7 @@
 <div class="all-wrapper no-menu-wrapper light-bg">
 
     <div class="login-logo-w">
-        <a href="loginPage.php"  class="logo">
+        <a href="loginPage.php" class="logo">
             <i class="fa fa-rocket"></i>
         </a>
     </div>
@@ -24,7 +24,6 @@
 
 
                     {include file= 'loginUsuarioSucursalPage/loginForm.tpl'}
-
 
 
                 </div>

@@ -18,7 +18,8 @@
             <td>{$usuario->getEmail()}</td>
             <td>{$usuario->getUsername()}</td>
             <td class="text-right">
-                <a href="{$root}/administrador/borrarusuario/{$usuario->getId()}" class="btn btn-danger btn-xs remove-tr"><i class="fa fa-times"></i></a>
+                <a href="{$root}/administrador/borrarusuario/{$usuario->getId()}"
+                   class="btn btn-danger btn-xs remove-tr"><i class="fa fa-times"></i></a>
             </td>
         </tr>
     {/foreach}

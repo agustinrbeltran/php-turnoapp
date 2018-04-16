@@ -41,9 +41,9 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {function} tag
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
+     * @param  array $args array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
      *
      * @return boolean true
      */
@@ -57,7 +57,7 @@ class Smarty_Internal_Compile_Function extends Smarty_Internal_CompileBase
         }
         unset($_attr['nocache']);
         $save = array($_attr, $compiler->parser->current_buffer,
-                      $compiler->template->has_nocache_code, $compiler->template->required_plugins);
+            $compiler->template->has_nocache_code, $compiler->template->required_plugins);
         $this->openTag($compiler, 'function', $save);
         $_name = trim($_attr['name'], "'\"");
         unset($_attr['name']);
@@ -104,9 +104,9 @@ class Smarty_Internal_Compile_Functionclose extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {/function} tag
      *
-     * @param  array  $args      array with attributes from parser
-     * @param  object $compiler  compiler object
-     * @param  array  $parameter array with compilation parameter
+     * @param  array $args array with attributes from parser
+     * @param  object $compiler compiler object
+     * @param  array $parameter array with compilation parameter
      *
      * @return boolean true
      */

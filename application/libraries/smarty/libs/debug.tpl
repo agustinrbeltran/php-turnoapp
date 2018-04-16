@@ -88,7 +88,7 @@
     <body>
 
     <h1>Smarty Debug Console
-        -  {if isset($template_name)}{$template_name|debug_print_var nofilter}{else}Total Time {$execution_time|string_format:"%.5f"}{/if}</h1>
+        - {if isset($template_name)}{$template_name|debug_print_var nofilter}{else}Total Time {$execution_time|string_format:"%.5f"}{/if}</h1>
 
     {if !empty($template_data)}
         <h2>included templates &amp; config files (load time in seconds)</h2>

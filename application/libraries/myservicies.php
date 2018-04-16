@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 use business_logic\servicies\AdministradorService,
     business_logic\servicies\UsuarioSucursalService,
@@ -12,15 +12,18 @@ class MyServicies
 
     }
 
-    public function getAdministradorService(){
+    public function getAdministradorService()
+    {
         return new AdministradorService();
     }
 
-    public function getUsuarioSucursalService(){
+    public function getUsuarioSucursalService()
+    {
         return new UsuarioSucursalService();
     }
 
-    public function getLoginSignupService(){
+    public function getLoginSignupService()
+    {
         return new LoginSignupService();
     }
 

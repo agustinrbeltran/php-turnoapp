@@ -8,20 +8,22 @@ use business_logic\entities\UsuarioSucursal,
     data\collections\UsuarioSucursalCollection;
 
 
-class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucursalMapperInterface
+class UsuarioSucursalMapper extends AbstractDataMapper implements UsuarioSucursalMapperInterface
 {
 
     protected $_entityTable = "usuarios";
-    protected $_collection ;
+    protected $_collection;
 
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         parent::__construct($adapter);
         $this->_collection = new UsuarioSucursalCollection();
 
     }
 
-    public function insert(UsuarioSucursal $usuarioSucursal){
+    public function insert(UsuarioSucursal $usuarioSucursal)
+    {
         $usuarioSucursal->setId(
             $this->adapter->insert(
                 $this->_entityTable,
@@ -31,7 +33,7 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
                     "email" => $usuarioSucursal->getEmail(),
                     "username" => $usuarioSucursal->getUsername(),
                     "password" => $usuarioSucursal->getPassword(),
-                    "tipo" => 1 , //tipo 1 es para usuarios de sucursal, 2 para los administradores
+                    "tipo" => 1, //tipo 1 es para usuarios de sucursal, 2 para los administradores
                     "id_sucursal" => $usuarioSucursal->getIdSucursal()
                 )
             )
@@ -40,10 +42,10 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
         return $usuarioSucursal->getId();
     }
 
-    public function update (UsuarioSucursal $usuarioSucursal)
+    public function update(UsuarioSucursal $usuarioSucursal)
     {
         $id_usr_sucursal = $usuarioSucursal->getId();
-        $confirm= $this->adapter->update(
+        $confirm = $this->adapter->update(
             $this->_entityTable,
             array(
                 "nombre" => $usuarioSucursal->getNombre(),
@@ -57,14 +59,16 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
         return $confirm;
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id instanceof UsuarioSucursal) {
             $id = $id->getId();
         }
-        return $this->adapter->delete($this->_entityTable,"id = $id");
+        return $this->adapter->delete($this->_entityTable, "id = $id");
     }
 
-    protected function createEntity(array $row) {
+    protected function createEntity(array $row)
+    {
         $usuarioSucursal = new UsuarioSucursal($row["nombre"], $row["apellido"], $row["email"], $row["username"], $row["password"]);
         $usuarioSucursal->setId($row["id"]);
         $usuarioSucursal->setIdSucursal($row["id_sucursal"]);
@@ -76,7 +80,7 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
     public function findById($id)
     {
         $this->adapter->select($this->_entityTable,
-            array('id' => $id , 'tipo'=> 1));
+            array('id' => $id, 'tipo' => 1));
 
         if (!$row = $this->adapter->fetch()) {
             return null;
@@ -86,9 +90,10 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
     }
 
     //metodo sobreescrito
-    public function findAll(array $conditions = array()) {
+    public function findAll(array $conditions = array())
+    {
 
-        $conditions['tipo']=1;
+        $conditions['tipo'] = 1;
         $this->adapter->select($this->_entityTable, $conditions);
         $rows = $this->adapter->fetchAll();
         return $this->createCollection($rows);
@@ -107,4 +112,5 @@ class UsuarioSucursalMapper extends AbstractDataMapper implements  UsuarioSucurs
     }
 
 }
+
 ?>

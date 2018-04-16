@@ -9,36 +9,38 @@ use business_logic\entities\Ticketera,
     data\collections\TicketeraCollection;
 
 
-class TicketeraMapper extends AbstractDataMapper implements  TicketeraMapperInterface
+class TicketeraMapper extends AbstractDataMapper implements TicketeraMapperInterface
 {
 
     protected $_entityTable = "ticketeras";
     protected $_collection;
 
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         parent::__construct($adapter);
         $this->_collection = new TicketeraCollection();
     }
 
-    public function insert(TicketeraInterface $ticketera, $id_sucursal) {
+    public function insert(TicketeraInterface $ticketera, $id_sucursal)
+    {
         $ticketera->setId(
             $this->adapter->insert(
                 $this->_entityTable,
-                        array(
-                            "turno" => $ticketera->getTurno(),
-                            "promedio" => $ticketera->getPromedio(),
-                            "id_sucursal" => $id_sucursal
-                        )
+                array(
+                    "turno" => $ticketera->getTurno(),
+                    "promedio" => $ticketera->getPromedio(),
+                    "id_sucursal" => $id_sucursal
+                )
             )
         );
         return $ticketera->getId();
     }
 
-    public function update (TicketeraInterface $ticketera)
+    public function update(TicketeraInterface $ticketera)
     {
         $id_ticketera = $ticketera->getId();
-        $confirm= $this->adapter->update(
+        $confirm = $this->adapter->update(
             $this->_entityTable,
             array(
                 "turno" => $ticketera->getTurno(),
@@ -49,14 +51,16 @@ class TicketeraMapper extends AbstractDataMapper implements  TicketeraMapperInte
         return $confirm;
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id instanceof TicketeraInterface) {
             $id = $id->getId();
         }
-        return $this->adapter->delete($this->_entityTable,"id = $id");
+        return $this->adapter->delete($this->_entityTable, "id = $id");
     }
 
-    protected function createEntity(array $row) {
+    protected function createEntity(array $row)
+    {
         $ticketera = new Ticketera();
         $ticketera->setTurno($row["turno"]);
         $ticketera->setPromedio($row["promedio"]);
@@ -77,4 +81,5 @@ class TicketeraMapper extends AbstractDataMapper implements  TicketeraMapperInte
 
 
 }
+
 ?>

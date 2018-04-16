@@ -1,4 +1,4 @@
-<form id='login' role="form" method='post' accept-charset='UTF-8' action={$login_usr_sucursal_page}  >
+<form id='login' role="form" method='post' accept-charset='UTF-8' action={$login_usr_sucursal_page}>
 
     <div class="lined-separator">Logueate con tu usuario y contraseña</div>
 
@@ -13,7 +13,8 @@
 
     <div class="form-group relative-w">
 
-        <input id='username' type="text" name='username' class="form-control" placeholder="Username"  value={$display_username}>
+        <input id='username' type="text" name='username' class="form-control" placeholder="Username"
+               value={$display_username}>
         <span id='login_username_errorloc' class="error"></span>
         <i class="fa fa-user input-abs-icon"></i>
 

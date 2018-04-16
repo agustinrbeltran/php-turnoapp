@@ -17,4 +17,5 @@ interface MarcaDeTiempoMapperInterface
     public function delete($id);
 
 }
+
 ?>

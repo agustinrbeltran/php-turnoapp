@@ -4,7 +4,8 @@ namespace data\singleton;
 
 use data\datamappers\TicketeraMapper;
 
-class TicketeraMapperSingleton {
+class TicketeraMapperSingleton
+{
 
     private static $_instance = null;
 
@@ -14,10 +15,11 @@ class TicketeraMapperSingleton {
     {
         $pdoAdapterSingleton = PdoAdapterSingleton::getInstance();
         $adapter = $pdoAdapterSingleton->getAdapter();
-        $this->_ticketeraMapper= new TicketeraMapper($adapter);
+        $this->_ticketeraMapper = new TicketeraMapper($adapter);
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (empty(static::$_instance)) {
             $class = get_called_class();
             static::$_instance = new $class;
@@ -37,4 +39,5 @@ class TicketeraMapperSingleton {
 
 
 }
+
 ?>

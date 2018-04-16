@@ -1,4 +1,4 @@
-<form id="reg"  role="form" method='post' action="{$root}/signup/signup_validation">
+<form id="reg" role="form" method='post' action="{$root}/signup/signup_validation">
 
     <div class="lined-separator">Registrate</div>
 
@@ -6,7 +6,7 @@
 
     <div class="form-group relative-w">
 
-        <input  name='nombre' required="required" type="text" class="form-control" placeholder="Nombre">
+        <input name='nombre' required="required" type="text" class="form-control" placeholder="Nombre">
         <i class="fa fa-user input-abs-icon"></i>
 
     </div>
@@ -20,21 +20,22 @@
 
     <div class="form-group relative-w">
 
-        <input  name='email' required="email" type="email" class="form-control" placeholder="Enter email">
+        <input name='email' required="email" type="email" class="form-control" placeholder="Enter email">
         <i class="fa fa-envelope-alt input-abs-icon"></i>
 
     </div>
 
     <div class="form-group relative-w">
 
-        <input  name='password' type="password" required="password" class="form-control" placeholder="Password">
+        <input name='password' type="password" required="password" class="form-control" placeholder="Password">
         <i class="fa fa-lock input-abs-icon"></i>
 
     </div>
 
     <div class="form-group relative-w">
 
-        <input  name='cpassword' type="password" required="cpassword" class="form-control" placeholder="Confirm Password">
+        <input name='cpassword' type="password" required="cpassword" class="form-control"
+               placeholder="Confirm Password">
         <i class="fa fa-lock input-abs-icon"></i>
 
     </div>

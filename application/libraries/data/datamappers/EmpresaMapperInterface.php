@@ -12,9 +12,10 @@ interface EmpresaMapperInterface
 
     public function insert(EmpresaInterface $empresa, $id_administrador);
 
-    public function update (EmpresaInterface $empresa);
+    public function update(EmpresaInterface $empresa);
 
     public function delete($id);
 
 }
+
 ?>

@@ -1,5 +1,3 @@
-
-
 <table class="table table-bordered table-hover">
 
     <thead>
@@ -14,7 +12,6 @@
     <tbody>
 
     {foreach from=$sucursales item=sucursal}
-
         <tr>
             <td>
                 <a href="{$root}/administrador/usuarios/{$sucursal->getId()}">
@@ -30,11 +27,11 @@
 
             <td class="text-right">
 
-                <a href="{$root}/administrador/borrarsucursal/{$sucursal->getId()}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></a>
+                <a href="{$root}/administrador/borrarsucursal/{$sucursal->getId()}" class="btn btn-danger btn-xs"><i
+                            class="fa fa-times"></i></a>
 
             </td>
         </tr>
-
     {/foreach}
 
     </tbody>

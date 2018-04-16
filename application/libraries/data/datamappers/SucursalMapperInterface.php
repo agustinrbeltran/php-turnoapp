@@ -13,9 +13,10 @@ interface SucursalMapperInterface
 
     public function insert(SucursalInterface $sucursal, $id_empresa);
 
-    public function update (SucursalInterface $sucursal);
+    public function update(SucursalInterface $sucursal);
 
     public function delete($id);
 
 }
+
 ?>

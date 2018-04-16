@@ -1,5 +1,4 @@
-
-<form class="bottom-margin"  method="post" action="{$root}/administrador/agregarsucursal">
+<form class="bottom-margin" method="post" action="{$root}/administrador/agregarsucursal">
 
     <fieldset>
 
@@ -13,7 +12,8 @@
                 <div class="form-group has-iconed">
 
                     <label>Nombre</label>
-                    <div class="iconed-input"><input type="text" name="nombre" class="form-control" minlength="2" required placeholder="Nombre"></div>
+                    <div class="iconed-input"><input type="text" name="nombre" class="form-control" minlength="2"
+                                                     required placeholder="Nombre"></div>
 
                 </div>
             </div>
@@ -24,7 +24,8 @@
                 <div class="form-group has-iconed">
 
                     <label>Direccion</label>
-                    <div class="iconed-input"><input type="text" name="direccion" class="form-control" minlength="2" required placeholder="Direccion"></div>
+                    <div class="iconed-input"><input type="text" name="direccion" class="form-control" minlength="2"
+                                                     required placeholder="Direccion"></div>
 
                 </div>
             </div>
@@ -35,7 +36,8 @@
                 <div class="form-group has-iconed">
 
                     <label>Ciudad</label>
-                    <div class="iconed-input"><input type="text" name="ciudad" class="form-control" minlength="2" required placeholder="Ciudad"></div>
+                    <div class="iconed-input"><input type="text" name="ciudad" class="form-control" minlength="2"
+                                                     required placeholder="Ciudad"></div>
 
                 </div>
             </div>

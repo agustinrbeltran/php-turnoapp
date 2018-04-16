@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <definitions name="Scramble"
-          targetNamespace="urn:localhost-scramble"
-          xmlns:tns="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/scramble.wsdl"
-          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-		  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-          xmlns="http://schemas.xmlsoap.org/wsdl/">
+             targetNamespace="urn:localhost-scramble"
+             xmlns:tns="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/scramble.wsdl"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
 
     <message name="getTurnoRequest">
-		<part name="request" type="xsd:int"/>
+        <part name="request" type="xsd:int"/>
     </message>
 
     <message name="getTurnoResponse">
         <part name="result" type="xsd:int"/>
     </message>
-	
-	<message name="getPromedioRequest">
-		<part name="request" type="xsd:double"/>
+
+    <message name="getPromedioRequest">
+        <part name="request" type="xsd:double"/>
     </message>
 
     <message name="getPromedioResponse">
@@ -24,45 +24,46 @@
 
     <portType name="ScramblePortType">
         <operation name="getTurno">
-           <input message="tns:getTurnoRequest"/>
-           <output message="tns:getTurnoResponse"/>
+            <input message="tns:getTurnoRequest"/>
+            <output message="tns:getTurnoResponse"/>
         </operation>
-		<operation name="getPromedio">
-           <input message="tns:getPromedioRequest"/>
-           <output message="tns:getPromedioResponse"/>
+        <operation name="getPromedio">
+            <input message="tns:getPromedioRequest"/>
+            <output message="tns:getPromedioResponse"/>
         </operation>
     </portType>
 
     <binding name="ScrambleBinding" type="tns:ScramblePortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="getTurno">
-           <soap:operation soapAction='urn:localhost-scramble#getTurno'/>
-           <input>
-               <soap:body use="encoded" namespace='urn:localhost-scramble'
-                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-           </input>
-           <output>
-               <soap:body use="encoded" namespace='urn:localhost-scramble'
-                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-           </output>
+            <soap:operation soapAction='urn:localhost-scramble#getTurno'/>
+            <input>
+                <soap:body use="encoded" namespace='urn:localhost-scramble'
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace='urn:localhost-scramble'
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
         </operation>
-		<operation name="getPromedio">
-           <soap:operation soapAction='urn:localhost-scramble#getPromedio'/>
-           <input>
-               <soap:body use="encoded" namespace='urn:localhost-scramble'
-                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-           </input>
-           <output>
-               <soap:body use="encoded" namespace='urn:localhost-scramble'
-                          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-           </output>
+        <operation name="getPromedio">
+            <soap:operation soapAction='urn:localhost-scramble#getPromedio'/>
+            <input>
+                <soap:body use="encoded" namespace='urn:localhost-scramble'
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace='urn:localhost-scramble'
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
         </operation>
     </binding>
 
     <service name="ScrambleService">
         <documentation>My first service</documentation>
         <port name="ScramblePort" binding="tns:ScrambleBinding">
-           <soap:address location="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/Server.php"/>
+            <soap:address
+                    location="http://localhost:8001/webapp/application/libraries/business_logic/servicies/webservice/Server.php"/>
         </port>
     </service>
 </definitions>

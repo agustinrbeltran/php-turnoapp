@@ -4,7 +4,8 @@ namespace data\singleton;
 
 use data\datamappers\EmpresaMapper;
 
-class EmpresaMapperSingleton {
+class EmpresaMapperSingleton
+{
 
     private static $_instance = null;
 
@@ -14,10 +15,11 @@ class EmpresaMapperSingleton {
     {
         $pdoAdapterSingleton = PdoAdapterSingleton::getInstance();
         $adapter = $pdoAdapterSingleton->getAdapter();
-        $this->_empresaMapper= new EmpresaMapper($adapter);
+        $this->_empresaMapper = new EmpresaMapper($adapter);
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (empty(static::$_instance)) {
             $class = get_called_class();
             static::$_instance = new $class;
@@ -38,4 +40,5 @@ class EmpresaMapperSingleton {
 
 
 }
+
 ?>

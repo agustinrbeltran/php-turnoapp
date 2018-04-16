@@ -5,7 +5,8 @@ namespace data\singleton;
 use data\datamappers\AdministradorMapper;
 
 
-class AdministradorMapperSingleton {
+class AdministradorMapperSingleton
+{
 
     private static $_instance = null;
 
@@ -15,10 +16,11 @@ class AdministradorMapperSingleton {
     {
         $pdoAdapterSingleton = PdoAdapterSingleton::getInstance();
         $adapter = $pdoAdapterSingleton->getAdapter();
-        $this->_administradorMapper= new AdministradorMapper($adapter);
+        $this->_administradorMapper = new AdministradorMapper($adapter);
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (empty(static::$_instance)) {
             $class = get_called_class();
             static::$_instance = new $class;
@@ -38,4 +40,5 @@ class AdministradorMapperSingleton {
 
 
 }
+
 ?>

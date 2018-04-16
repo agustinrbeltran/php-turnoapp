@@ -10,26 +10,26 @@
     </thead>
     <tbody>
     {foreach from=$ticketeras item=ticketera}
-    <tr>
+        <tr>
 
-        <td>
-            <a href="{$root}/usuario/verticketera/{$ticketera->getId()}" >
-                {$ticketera->getId()}
-            </a>
-        </td>
+            <td>
+                <a href="{$root}/usuario/verticketera/{$ticketera->getId()}">
+                    {$ticketera->getId()}
+                </a>
+            </td>
 
-        <td>{$ticketera->getTurno()}</td>
+            <td>{$ticketera->getTurno()}</td>
 
-        <td>{$ticketera->getPromedio()}</td>
+            <td>{$ticketera->getPromedio()}</td>
 
 
-        <td class="text-right">
-            <a href="{$root}/usuario/borrarticketera/{$ticketera->getId()}" class="btn btn-danger btn-xs">
-                <i class="fa fa-times"></i>
-            </a>
-        </td>
+            <td class="text-right">
+                <a href="{$root}/usuario/borrarticketera/{$ticketera->getId()}" class="btn btn-danger btn-xs">
+                    <i class="fa fa-times"></i>
+                </a>
+            </td>
 
-    </tr>
+        </tr>
     {/foreach}
 
     </tbody>

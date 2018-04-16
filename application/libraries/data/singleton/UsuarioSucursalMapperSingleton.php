@@ -4,7 +4,8 @@ namespace data\singleton;
 
 use data\datamappers\UsuarioSucursalMapper;
 
-class UsuarioSucursalMapperSingleton {
+class UsuarioSucursalMapperSingleton
+{
     private static $_instance = null;
 
     private $_usuarioSucursalMapper;
@@ -13,10 +14,11 @@ class UsuarioSucursalMapperSingleton {
     {
         $pdoAdapterSingleton = PdoAdapterSingleton::getInstance();
         $adapter = $pdoAdapterSingleton->getAdapter();
-        $this->_usuarioSucursalMapper= new UsuarioSucursalMapper($adapter);
+        $this->_usuarioSucursalMapper = new UsuarioSucursalMapper($adapter);
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (empty(static::$_instance)) {
             $class = get_called_class();
             static::$_instance = new $class;
@@ -35,6 +37,6 @@ class UsuarioSucursalMapperSingleton {
     }
 
 
-
 }
+
 ?>

@@ -4,7 +4,8 @@ namespace data\singleton;
 
 use data\datamappers\MarcaDeTiempoMapper;
 
-class MarcaDeTiempoMapperSingleton {
+class MarcaDeTiempoMapperSingleton
+{
 
     private static $_instance = null;
 
@@ -14,10 +15,11 @@ class MarcaDeTiempoMapperSingleton {
     {
         $pdoAdapterSingleton = PdoAdapterSingleton::getInstance();
         $adapter = $pdoAdapterSingleton->getAdapter();
-        $this->_marcaDeTiempoMapper= new MarcaDeTiempoMapper($adapter);
+        $this->_marcaDeTiempoMapper = new MarcaDeTiempoMapper($adapter);
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (empty(static::$_instance)) {
             $class = get_called_class();
             static::$_instance = new $class;
@@ -38,4 +40,5 @@ class MarcaDeTiempoMapperSingleton {
 
 
 }
+
 ?>

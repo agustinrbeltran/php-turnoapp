@@ -9,19 +9,21 @@ use business_logic\entities\Empresa,
     data\primitives\DatabaseAdapterInterface,
     data\collections\EmpresaCollection;
 
-class EmpresaMapper extends AbstractDataMapper implements  EmpresaMapperInterface
+class EmpresaMapper extends AbstractDataMapper implements EmpresaMapperInterface
 {
 
     protected $_entityTable = "empresas";
     protected $_collection;
 
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         parent::__construct($adapter);
         $this->_collection = new EmpresaCollection();
     }
 
-    public function insert(EmpresaInterface $empresa, $id_administrador) {
+    public function insert(EmpresaInterface $empresa, $id_administrador)
+    {
         $empresa->setId(
             $this->adapter->insert(
                 $this->_entityTable,
@@ -35,10 +37,10 @@ class EmpresaMapper extends AbstractDataMapper implements  EmpresaMapperInterfac
         return $empresa->getId();
     }
 
-    public function update (EmpresaInterface $empresa)
+    public function update(EmpresaInterface $empresa)
     {
         $id_empresa = $empresa->getId();
-        $confirm= $this->adapter->update(
+        $confirm = $this->adapter->update(
             $this->_entityTable,
             array(
                 "nombre" => $empresa->getNombre()
@@ -48,14 +50,16 @@ class EmpresaMapper extends AbstractDataMapper implements  EmpresaMapperInterfac
         return $confirm;
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id instanceof EmpresaInterface) {
             $id = $id->getId();
         }
-        return $this->adapter->delete($this->_entityTable,"id = $id");
+        return $this->adapter->delete($this->_entityTable, "id = $id");
     }
 
-    protected function createEntity(array $row) {
+    protected function createEntity(array $row)
+    {
 
         $empresa = new Empresa($row["nombre"]);
         $empresa->setId($row["id"]);
@@ -75,4 +79,5 @@ class EmpresaMapper extends AbstractDataMapper implements  EmpresaMapperInterfac
 
 
 }
+
 ?>

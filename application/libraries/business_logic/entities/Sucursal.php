@@ -1,20 +1,21 @@
 <?php
+
 namespace business_logic\entities;
 
-use BadMethodCallException,InvalidArgumentException, business_logic\factory\ObjectFactory;
+use BadMethodCallException, InvalidArgumentException, business_logic\factory\ObjectFactory;
 
 class Sucursal implements SucursalInterface
 {
 
-	private $_id;
-	private $_nombre;
-	private $_usuarios;
-	private $_ticketeras;
+    private $_id;
+    private $_nombre;
+    private $_usuarios;
+    private $_ticketeras;
     private $_direccion;
     private $_ciudad;
 
-	function __construct($nombre,$direccion,$ciudad)
-	{
+    function __construct($nombre, $direccion, $ciudad)
+    {
         $this->setNombre($nombre);
         $this->_usuarios = ObjectFactory::crearCollection();
         $this->_ticketeras = ObjectFactory::crearCollection();
@@ -59,35 +60,35 @@ class Sucursal implements SucursalInterface
         return $this->_nombre;
     }
 
-	public function setUsuario (UsuarioSucursalInterface $usuarioSucursal)
-	{
+    public function setUsuario(UsuarioSucursalInterface $usuarioSucursal)
+    {
         $this->_usuarios->insert($usuarioSucursal);
-	}
+    }
 
     public function setUsuarios(array $usuariosArray)
     {
         $this->_usuarios->setArray($usuariosArray);
     }
 
-	public function getUsuarios()
-	{
+    public function getUsuarios()
+    {
         return $this->_usuarios;
-	}
+    }
 
-	public function setTicketera(TicketeraInterface $ticketera)
-	{
+    public function setTicketera(TicketeraInterface $ticketera)
+    {
         $this->_ticketeras->insert($ticketera);
-	}
+    }
 
     public function setTicketeras(array $ticketerasArray)
     {
         $this->_ticketeras->setArray($ticketerasArray);
     }
 
-	public function getTicketeras()
-	{
+    public function getTicketeras()
+    {
         return $this->_ticketeras->getArray();
-	}
+    }
 
     public function setCiudad($ciudad)
     {
@@ -124,4 +125,5 @@ class Sucursal implements SucursalInterface
     }
 
 }
+
 ?>

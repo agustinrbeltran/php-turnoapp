@@ -15,4 +15,5 @@ interface UsuarioSucursalMapperInterface
     public function delete($id);
 
 }
+
 ?>

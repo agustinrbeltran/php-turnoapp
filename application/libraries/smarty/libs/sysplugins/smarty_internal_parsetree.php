@@ -64,7 +64,7 @@ class _smarty_tag extends _smarty_parsetree
      * Create parse tree buffer for Smarty tag
      *
      * @param object $parser parser object
-     * @param string $data   content
+     * @param string $data content
      */
     public function __construct($parser, $data)
     {
@@ -110,7 +110,7 @@ class _smarty_code extends _smarty_parsetree
      * Create parse tree buffer for code fragment
      *
      * @param object $parser parser object
-     * @param string $data   content
+     * @param string $data content
      */
     public function __construct($parser, $data)
     {
@@ -141,7 +141,7 @@ class _smarty_doublequoted extends _smarty_parsetree
     /**
      * Create parse tree buffer for double quoted string subtrees
      *
-     * @param object            $parser  parser object
+     * @param object $parser parser object
      * @param _smarty_parsetree $subtree parsetree buffer
      */
     public function __construct($parser, _smarty_parsetree $subtree)
@@ -219,7 +219,7 @@ class _smarty_dq_content extends _smarty_parsetree
      * Create parse tree buffer with string content
      *
      * @param object $parser parser object
-     * @param string $data   string section
+     * @param string $data string section
      */
     public function __construct($parser, $data)
     {
@@ -282,18 +282,18 @@ class _smarty_template_buffer extends _smarty_parsetree
     public function to_smarty_php()
     {
         $code = '';
-        for ($key = 0, $cnt = count($this->subtrees); $key < $cnt; $key ++) {
+        for ($key = 0, $cnt = count($this->subtrees); $key < $cnt; $key++) {
             if ($key + 2 < $cnt) {
                 if ($this->subtrees[$key] instanceof _smarty_linebreak && $this->subtrees[$key + 1] instanceof _smarty_tag && $this->subtrees[$key + 1]->data == '' && $this->subtrees[$key + 2] instanceof _smarty_linebreak) {
                     $key = $key + 1;
                     continue;
                 }
-                if (substr($this->subtrees[$key]->data, - 1) == '<' && $this->subtrees[$key + 1]->data == '' && substr($this->subtrees[$key + 2]->data, - 1) == '?') {
+                if (substr($this->subtrees[$key]->data, -1) == '<' && $this->subtrees[$key + 1]->data == '' && substr($this->subtrees[$key + 2]->data, -1) == '?') {
                     $key = $key + 2;
                     continue;
                 }
             }
-            if (substr($code, - 1) == '<') {
+            if (substr($code, -1) == '<') {
                 $subtree = $this->subtrees[$key]->to_smarty_php();
                 if (substr($subtree, 0, 1) == '?') {
                     $code = substr($code, 0, strlen($code) - 1) . '<<?php ?>?' . substr($subtree, 1);
@@ -304,7 +304,7 @@ class _smarty_template_buffer extends _smarty_parsetree
                 }
                 continue;
             }
-            if ($this->parser->asp_tags && substr($code, - 1) == '%') {
+            if ($this->parser->asp_tags && substr($code, -1) == '%') {
                 $subtree = $this->subtrees[$key]->to_smarty_php();
                 if (substr($subtree, 0, 1) == '>') {
                     $code = substr($code, 0, strlen($code) - 1) . '%<?php ?>>' . substr($subtree, 1);
@@ -313,7 +313,7 @@ class _smarty_template_buffer extends _smarty_parsetree
                 }
                 continue;
             }
-            if (substr($code, - 1) == '?') {
+            if (substr($code, -1) == '?') {
                 $subtree = $this->subtrees[$key]->to_smarty_php();
                 if (substr($subtree, 0, 1) == '>') {
                     $code = substr($code, 0, strlen($code) - 1) . '?<?php ?>>' . substr($subtree, 1);
@@ -342,7 +342,7 @@ class _smarty_text extends _smarty_parsetree
      * Create template text buffer
      *
      * @param object $parser parser object
-     * @param string $data   text
+     * @param string $data text
      */
     public function __construct($parser, $data)
     {
@@ -374,7 +374,7 @@ class _smarty_linebreak extends _smarty_parsetree
      * Create buffer with linebreak content
      *
      * @param object $parser parser object
-     * @param string $data   linebreak string
+     * @param string $data linebreak string
      */
     public function __construct($parser, $data)
     {

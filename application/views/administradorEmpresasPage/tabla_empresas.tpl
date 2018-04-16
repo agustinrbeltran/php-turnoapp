@@ -8,23 +8,23 @@
     </thead>
     <tbody>
     {foreach from=$empresas item=empresa}
-    <tr>
+        <tr>
 
-        <td>
-            <a href="{$root}/administrador/sucursales/{$empresa->getId()}" >
-                {$empresa->getId()}
-            </a>
-        </td>
+            <td>
+                <a href="{$root}/administrador/sucursales/{$empresa->getId()}">
+                    {$empresa->getId()}
+                </a>
+            </td>
 
-        <td>{$empresa->getNombre()}</td>
+            <td>{$empresa->getNombre()}</td>
 
-        <td class="text-right">
-            <a href="{$root}/administrador/borrarempresa/{$empresa->getId()}" class="btn btn-danger btn-xs">
-                <i class="fa fa-times"></i>
-            </a>
-        </td>
+            <td class="text-right">
+                <a href="{$root}/administrador/borrarempresa/{$empresa->getId()}" class="btn btn-danger btn-xs">
+                    <i class="fa fa-times"></i>
+                </a>
+            </td>
 
-    </tr>
+        </tr>
     {/foreach}
 
     </tbody>

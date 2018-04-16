@@ -37,7 +37,7 @@
                     Revisa tu casilla de correo para completar el registro.<br>
 
                     <div class="no-account-yet">
-                        Volver al <a href="{$root}/login" >Login</a>
+                        Volver al <a href="{$root}/login">Login</a>
                     </div>
 
                 </div>

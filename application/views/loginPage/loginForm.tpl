@@ -1,4 +1,4 @@
-<form  role="form" method='post' accept-charset='UTF-8' action="{$root}/login/login_validation"  >
+<form role="form" method='post' accept-charset='UTF-8' action="{$root}/login/login_validation">
 
     <div class="lined-separator">Logueate con tu usuario y contraseña</div>
 
@@ -6,7 +6,7 @@
 
     <div class="form-group relative-w">
 
-        <input type="text" name='email' required="required" class="form-control" placeholder="Email" >
+        <input type="text" name='email' required="required" class="form-control" placeholder="Email">
         <i class="fa fa-user input-abs-icon"></i>
 
     </div>
@@ -22,7 +22,7 @@
 
 
     <div class="no-account-yet">
-        No tenes una cuenta todavia? <a href="{$root}/signup" >Registrate ahora</a>
+        No tenes una cuenta todavia? <a href="{$root}/signup">Registrate ahora</a>
     </div>
 
 </form>

@@ -2,19 +2,19 @@
 
 namespace business_logic\entities;
 
-use DateTime,BadMethodCallException,InvalidArgumentException;
+use DateTime, BadMethodCallException, InvalidArgumentException;
 
 
-class MarcaDeTiempo implements  MarcaDeTiempoInterface
+class MarcaDeTiempo implements MarcaDeTiempoInterface
 {
 
-	private $_id;
-	private $_timestamp;
+    private $_id;
+    private $_timestamp;
 
-	function __construct()
-	{
+    function __construct()
+    {
         $this->makeTimestamp();
-	}
+    }
 
     public function setId($id)
     {
@@ -38,7 +38,7 @@ class MarcaDeTiempo implements  MarcaDeTiempoInterface
 
     private function makeTimestamp()
     {
-        if ($this->getTimestamp()!= null) {
+        if ($this->getTimestamp() != null) {
             throw new BadMethodCallException(
                 "El timestamp ya ha sido seteado.");
         }
@@ -46,15 +46,17 @@ class MarcaDeTiempo implements  MarcaDeTiempoInterface
         $date = new DateTime();
         $this->_timestamp = $date->getTimestamp();
     }
+
     public function setTimestamp($timestamp)
     {
-        $this->_timestamp= $timestamp;
+        $this->_timestamp = $timestamp;
     }
 
-	public function getTimestamp()
-	{
+    public function getTimestamp()
+    {
         return $this->_timestamp;
-	}
+    }
 
 }
+
 ?>

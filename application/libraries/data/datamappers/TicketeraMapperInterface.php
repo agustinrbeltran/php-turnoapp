@@ -17,4 +17,5 @@ interface TicketeraMapperInterface
     public function delete($id);
 
 }
+
 ?>

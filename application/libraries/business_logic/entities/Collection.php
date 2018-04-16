@@ -3,19 +3,21 @@
 namespace business_logic\entities;
 
 
-class Collection {
+class Collection
+{
     private $_collection = array();
 
     function __construct()
     {
     }
 
-    public function insert ($objeto)
+    public function insert($objeto)
     {
-        array_push($this->_collection,$objeto);
+        array_push($this->_collection, $objeto);
     }
 
-    public function reset(){
+    public function reset()
+    {
         unset($this->_collection);
         $this->_collection = array();
     }
@@ -37,7 +39,7 @@ class Collection {
 
     public function getLastInserted()
     {
-        return $this->_collection[$this->tamaño()-1];
+        return $this->_collection[$this->tamaño() - 1];
     }
 
 } 

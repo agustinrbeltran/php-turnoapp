@@ -67,7 +67,7 @@ class Smarty_Internal_Compile_Block extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {block} tag
      *
-     * @param array  $args     array with attributes from parser
+     * @param array $args array with attributes from parser
      * @param object $compiler compiler object
      *
      * @return boolean true
@@ -117,7 +117,7 @@ class Smarty_Internal_Compile_Block extends Smarty_Internal_CompileBase
      * Compile saved child block source
      *
      * @param object $compiler compiler object
-     * @param string $_name    optional name of child block
+     * @param string $_name optional name of child block
      *
      * @return string   compiled code of child block
      */
@@ -155,7 +155,7 @@ class Smarty_Internal_Compile_Block extends Smarty_Internal_CompileBase
         // flag that child is already compile by {$smarty.block.child} inclusion
         $compiler->template->block_data[$_name]['compiled'] = true;
         $_tpl = new Smarty_Internal_template('string:' . $compiler->template->block_data[$_name]['source'], $compiler->smarty, $compiler->template, $compiler->template->cache_id,
-                                             $compiler->template->compile_id, $compiler->template->caching, $compiler->template->cache_lifetime);
+            $compiler->template->compile_id, $compiler->template->caching, $compiler->template->cache_lifetime);
         if ($compiler->smarty->debugging) {
             Smarty_Internal_Debug::ignore($_tpl);
         }
@@ -206,7 +206,7 @@ class Smarty_Internal_Compile_Block extends Smarty_Internal_CompileBase
      * Compile $smarty.block.parent
      *
      * @param object $compiler compiler object
-     * @param string $_name    optional name of child block
+     * @param string $_name optional name of child block
      *
      * @return string   compiled code of child block
      */
@@ -258,7 +258,7 @@ class Smarty_Internal_Compile_Blockclose extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {/block} tag
      *
-     * @param array  $args     array with attributes from parser
+     * @param array $args array with attributes from parser
      * @param object $compiler compiler object
      *
      * @return string compiled code
@@ -365,7 +365,7 @@ class Smarty_Internal_Compile_Private_Child_Block extends Smarty_Internal_Compil
     /**
      * Compiles code for the {private_child_block} tag
      *
-     * @param array  $args     array with attributes from parser
+     * @param array $args array with attributes from parser
      * @param object $compiler compiler object
      *
      * @return boolean true
@@ -415,7 +415,7 @@ class Smarty_Internal_Compile_Private_Child_Blockclose extends Smarty_Internal_C
     /**
      * Compiles code for the {/private_child_block} tag
      *
-     * @param array  $args     array with attributes from parser
+     * @param array $args array with attributes from parser
      * @param object $compiler compiler object
      *
      * @return boolean true

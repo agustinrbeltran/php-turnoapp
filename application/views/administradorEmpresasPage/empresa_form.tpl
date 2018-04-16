@@ -1,4 +1,4 @@
-<form class="bottom-margin"  method="post" action="{$root}/administrador/agregarempresa">
+<form class="bottom-margin" method="post" action="{$root}/administrador/agregarempresa">
 
     <fieldset>
         <legend>Cree su empresa aqui</legend>
@@ -15,7 +15,8 @@
 
                     <div class="iconed-input">
 
-                        <input type="text" name="nombre" class="form-control" minlength="2" required placeholder="Nombre">
+                        <input type="text" name="nombre" class="form-control" minlength="2" required
+                               placeholder="Nombre">
 
                     </div>
 

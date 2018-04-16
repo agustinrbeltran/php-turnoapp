@@ -1,4 +1,5 @@
 <?php
+
 namespace data\primitives;
 
 abstract class AbstractDataMapper
@@ -6,11 +7,13 @@ abstract class AbstractDataMapper
     protected $adapter;
     protected $_entityTable;
 
-    public function __construct(DatabaseAdapterInterface $adapter) {
+    public function __construct(DatabaseAdapterInterface $adapter)
+    {
         $this->adapter = $adapter;
     }
 
-    public function getAdapter() {
+    public function getAdapter()
+    {
         return $this->adapter;
     }
 
@@ -42,7 +45,8 @@ abstract class AbstractDataMapper
         return $entities;
     }*/
 
-    public function findAll(array $conditions = array()) {
+    public function findAll(array $conditions = array())
+    {
 
         $this->adapter->select($this->_entityTable, $conditions);
         $rows = $this->adapter->fetchAll();

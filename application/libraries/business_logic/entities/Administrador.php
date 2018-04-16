@@ -7,10 +7,10 @@ use  business_logic\factory\ObjectFactory;
 class Administrador extends Usuario implements AdministradorInterface
 {
 
-	private $_empresas;
+    private $_empresas;
 
-	function __construct($nombre, $apellido, $email, $username, $password )
-	{
+    function __construct($nombre, $apellido, $email, $username, $password)
+    {
         // map post fields to the corresponding mutators
         $this->setNombre($nombre);
         $this->setApellido($apellido);
@@ -22,14 +22,14 @@ class Administrador extends Usuario implements AdministradorInterface
     }
 
     public function setEmpresa(EmpresaInterface $empresa)
-	{
-       $this->_empresas->insert($empresa);
-	}
+    {
+        $this->_empresas->insert($empresa);
+    }
 
-	public function getEmpresas()
-	{
+    public function getEmpresas()
+    {
         return $this->_empresas->getArray();
-	}
+    }
 
     public function setEmpresas(array $Empresas)
     {
@@ -37,4 +37,5 @@ class Administrador extends Usuario implements AdministradorInterface
     }
 
 }
+
 ?>

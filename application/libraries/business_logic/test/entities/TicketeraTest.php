@@ -1,9 +1,11 @@
 <?php
 
 namespace business_logic\test\entities;
+
 use business_logic\factory\ObjectFactory;
 
-class TicketeraTest{
+class TicketeraTest
+{
 
     private $ticketera;
 
@@ -12,8 +14,9 @@ class TicketeraTest{
         $this->ticketera = ObjectFactory::crearTicketera();
     }
 
-    public function aumentarTurnoTest(){
-        echo "aumentarTurnoTest():"."<br>";
+    public function aumentarTurnoTest()
+    {
+        echo "aumentarTurnoTest():" . "<br>";
         $this->ticketera->aumentarTurno();
         sleep(3);
         $this->ticketera->aumentarTurno();
@@ -23,16 +26,18 @@ class TicketeraTest{
         $this->ticketera->aumentarTurno();
 
 
-        echo "-Turno=".$this->ticketera->getTurno()."<br>";
-        echo "-Promedio=".$this->ticketera->getPromedio()."<br>";
+        echo "-Turno=" . $this->ticketera->getTurno() . "<br>";
+        echo "-Promedio=" . $this->ticketera->getPromedio() . "<br>";
     }
 
-    public function reiniciarTest(){
-        echo "reiniciarTest():"."<br>";
+    public function reiniciarTest()
+    {
+        echo "reiniciarTest():" . "<br>";
         $this->ticketera->reiniciar();
-        echo "-Turno=".$this->ticketera->getTurno()."<br>";
-        echo "-Promedio=".$this->ticketera->getPromedio()."<br>";
+        echo "-Turno=" . $this->ticketera->getTurno() . "<br>";
+        echo "-Promedio=" . $this->ticketera->getPromedio() . "<br>";
     }
 
 }
+
 ?>
